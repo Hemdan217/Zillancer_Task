@@ -29,7 +29,6 @@ export const EditSubmissionDetails = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     values["coverImage"] = image;
     updateSubmission(submission.id, values);
-    //console.log(values);
     setSubmitting(false);
     navigate("/");
   };
