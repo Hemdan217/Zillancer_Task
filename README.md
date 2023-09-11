@@ -24,24 +24,26 @@ The Submissions App is designed for learners to create, edit, and delete their h
 
 The Submissions App includes the following features:
 
-1. **Submission Management**: Users can create, edit, and delete their project submissions.
+1. **User Login**: User must login with his name first,so He Can access the submissions (Authentication ) .
 
-2. **Submission List**: Users can view a list of all submissions.
+2. **Submission Management**: Users can create, edit, and delete their project submissions.
 
-3. **Search Functionality**: Users can search for submissions using the title.
+3. **Submission List**: Users can view a list of all submissions.
 
-4. **Sorting**: Submissions can be sorted based on the hackathon start date (oldest to newest).
+4. **Search Functionality**: Users can search for submissions using the title.
 
-5. **Tabs**: There are two tabs available:
+5. **Sorting**: Submissions can be sorted based on the hackathon start date (oldest to newest).
+
+6. **Tabs**: There are two tabs available:
 
    - **All Submissions**: Displays all project submissions.
    - **Favorite Submissions**: Displays the user's favorite submissions.
 
-6. **Submission Details**: Clicking on a submission takes the user to a page displaying all the details related to that submission.
+7. **Submission Details**: Clicking on a submission takes the user to a page displaying all the details related to that submission.
 
-7. **Editing and Deletion**: On the submission details page, users can edit or delete the submission if he owns it.
+8. **Editing and Deletion**: On the submission details page, users can edit or delete the submission if he owns it (Authorization).
 
-8. **Favorite Submissions**: Users can mark a submission as their favorite by clicking on a star icon. Favorite submissions are displayed in the "Favorite Submissions" tab.
+9. **Favorite Submissions**: Users can mark a submission as their favorite by clicking on a star icon. Favorite submissions are displayed in the "Favorite Submissions" tab.
 
 ### Data Storage
 
