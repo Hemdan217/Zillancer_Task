@@ -1,13 +1,16 @@
 import { useState, useContext } from "react";
 import { useEffect } from "react";
 import { Formik, Form } from "formik";
-import { schemaValidation } from "./validate"; // Import your Yup validation schema here
+import { schemaValidation } from "../config/validate";
 import SubmissionForm from "../components/AddEdit/SubmissionForm";
 import { SubmissionsContext } from "../contextAPI/context";
+import { useNavigate } from "react-router-dom";
 
 export const AddSubmission = () => {
   const { addSubmission } = useContext(SubmissionsContext);
   const [image, setImage] = useState(null);
+  const navigate = useNavigate();
+
   const initialValues = {
     title: undefined,
     summary: undefined,
@@ -21,11 +24,11 @@ export const AddSubmission = () => {
   };
 
   const handleSubmit = (values, { setSubmitting }) => {
-    // Handle form submission here
     values["coverImage"] = image;
     //console.log(values);
     addSubmission(values);
-    setSubmitting(false); // Set submitting to false if no file is selected
+    setSubmitting(false);
+    navigate("/");
   };
   const updateImage = (value) => {
     setImage(value);
@@ -35,12 +38,12 @@ export const AddSubmission = () => {
   }, []);
   return (
     <>
-      <div className="container-fluid wrapper" id="add__submission">
+      <div className=" wrapper" id="add__submission">
         <div className="main__section">
           <h3>New Hackathon Submission</h3>
           <Formik
             initialValues={initialValues}
-            validationSchema={schemaValidation} // Set the validation schema here
+            validationSchema={schemaValidation}
             onSubmit={handleSubmit}
           >
             {({ isSubmitting }) => (

@@ -1,15 +1,15 @@
 import { useContext, useState, useEffect } from "react";
 import { Formik, Form } from "formik";
-import { schemaValidation } from "./validate";
+import { schemaValidation } from "../config/validate";
 import SubmissionForm from "../components/AddEdit/SubmissionForm";
-import { useNavigate } from "react-router-dom";
-import { useLoaderData } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
 import { SubmissionsContext } from "../contextAPI/context";
 
 export const EditSubmissionDetails = () => {
   const submission = useLoaderData();
+  const navigate = useNavigate();
+  const { updateSubmission } = useContext(SubmissionsContext);
   const [image, setImage] = useState(submission.coverImage);
-  //console.log(image);
   const initialValues = {
     title: submission.title || undefined,
     summary: submission.summary || undefined,
@@ -28,8 +28,10 @@ export const EditSubmissionDetails = () => {
 
   const handleSubmit = (values, { setSubmitting }) => {
     values["coverImage"] = image;
+    updateSubmission(submission.id, values);
     //console.log(values);
     setSubmitting(false);
+    navigate("/");
   };
 
   const updateImage = (value) => {
@@ -42,7 +44,7 @@ export const EditSubmissionDetails = () => {
 
   return (
     <>
-      <div className="container-fluid wrapper" id="add__submission">
+      <div className=" wrapper" id="add__submission">
         <div className="main__section">
           <h3>Edit Hackathon Submission</h3>
           <Formik

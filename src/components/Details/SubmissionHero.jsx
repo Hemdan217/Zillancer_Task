@@ -48,15 +48,17 @@ function DeleteSubmission({ open, setOpen, removeSubmission, submissionId }) {
 
 export const SubmissionHero = ({ submission }) => {
   const { manageFavorite, removeSubmission } = useContext(SubmissionsContext);
+
   const [open, setOpen] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(submission.isFavorited);
   return (
     <div className="wrapper" id="submission__hero">
       <div>
         <img src={submission.coverImage} />
         <h1>{submission.title}</h1>
         <div className="submission__action">
-          <button>
-            <Link to={`edit`}>
+          <Link to={`edit`}>
+            <button>
               {" "}
               <ModeEditOutlineIcon
                 style={{
@@ -68,8 +70,8 @@ export const SubmissionHero = ({ submission }) => {
                 }}
               />
               Edit
-            </Link>
-          </button>
+            </button>
+          </Link>
           <button
             onClick={() => {
               setOpen(true);
@@ -97,11 +99,12 @@ export const SubmissionHero = ({ submission }) => {
         transition={{ duration: 0.5 }}
         onClick={() => {
           manageFavorite(submission.id);
+          setIsFavorited(!isFavorited);
         }}
         style={{ cursor: "pointer" }}
       >
         <AnimatePresence>
-          {submission.isFavorited ? <StarIcon /> : <StarOutlineIcon />}
+          {isFavorited ? <StarIcon /> : <StarOutlineIcon />}
         </AnimatePresence>
       </motion.span>
       <span className="date">

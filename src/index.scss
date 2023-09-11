@@ -13,6 +13,9 @@ button a {
 input {
   transition: 0.8;
 }
+img {
+  object-fit: cover;
+}
 .wrapper {
   padding-left: 8.875rem;
   padding-right: 8.875rem;
@@ -223,6 +226,7 @@ select {
     padding-bottom: 0.6rem;
   }
 }
+
 #submission__hero div {
   display: flex;
 
@@ -293,6 +297,77 @@ select {
   border: 1px solid black;
 
   color: white;
+}
+
+#submission__description {
+  color: #fff;
+  color: #222222;
+  /* styleName: Desktop/Heading 5/H5 400; */
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  @media (max-width: 1000px) {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+  }
+  @media (max-width: 500px) {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+}
+#submission__description h3 {
+  color: #222222;
+  /* styleName: Desktop/Heading 5/H5 400; */
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+#submission__description div.description {
+  width: 60%;
+}
+#submission__description p {
+  color: #333333;
+  text-align: justify;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+}
+#submission__description div.details {
+  width: 25%;
+}
+#submission__description div.details h4 {
+  color: #858585;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+#submission__description div.details p {
+  color: #858585;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+#submission__description div.details a {
+  border: 1px solid #666666;
+
+  padding: 6px 18px;
+  border-radius: 10px;
+  gap: 12px;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
 }
 
 #add__submission {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Field, ErrorMessage } from "formik";
-import images from "./../../assets/constants.js";
+import images from "../../config/constants.js";
 
 const SubmissionForm = ({ image, updateImage }) => {
   //console.log(image);

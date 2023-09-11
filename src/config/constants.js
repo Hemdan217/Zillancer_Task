@@ -1,25 +1,27 @@
-import figmaIpsum from "./Figma ipsum.png";
-import interviewIpsum from "./InterviewMe.png";
-import loremIpsum from "./Lorem ipsum.png";
-import officeIpsum from "./Office ipsum.png";
-import pizzaIpsum from "./Pizza Ipsum.png";
-import potterIpsum from "./Potter ipsum.png";
-import logo from "./AI Planet Logo.png";
-import waves from "./waves.png";
-import idea from "./Hand holding bulb 3D.png";
-import addIcon from "./addIcon.png";
+import figmaIpsum from "../assets/Figma ipsum.png";
+import interviewIpsum from "../assets/InterviewMe.png";
+import loremIpsum from "../assets/Lorem ipsum.png";
+import officeIpsum from "../assets/Office ipsum.png";
+import pizzaIpsum from "../assets/Pizza Ipsum.png";
+import potterIpsum from "../assets/Potter ipsum.png";
+import logo from "../assets/AI Planet Logo.png";
+import waves from "../assets/waves.png";
+import idea from "../assets/Hand holding bulb 3D.png";
+import addIcon from "../assets/addIcon.png";
+import login from "../assets/login.png";
 
 export default {
   logo,
   waves,
   idea,
   addIcon,
+  login,
 };
 export const initialData = [
   {
     id: 1,
     userName: "Hemdan",
-    isFavorited: true,
+    isFavorited: false,
     title: "Project X",
     summary: "A groundbreaking project that leverages AI for healthcare.",
     description:
@@ -29,13 +31,13 @@ export const initialData = [
     hackathonStartDate: "2023-09-15",
     hackathonEndDate: "2023-09-17",
     githubRepositoryLink: "https://github.com/user/project-x",
-    otherLinks: ["https://devpost.com/project-x", "https://demo.project-x.com"],
+    otherLinks: "https://devpost.com/project-x",
     createdAt: "2023-08-20T09:30:00Z",
   },
   {
     id: 2,
     userName: "Hemdan",
-    isFavorited: true,
+    isFavorited: false,
     title: "Awesome App",
     summary: "An amazing mobile app that simplifies task management.",
     description:
@@ -45,13 +47,13 @@ export const initialData = [
     hackathonStartDate: "2023-10-01",
     hackathonEndDate: "2023-10-03",
     githubRepositoryLink: "https://github.com/user/awesome-app",
-    otherLinks: [],
+
     createdAt: "2023-08-22T14:45:00Z",
   },
   {
     id: 3,
     userName: "Hemdan",
-    isFavorited: true,
+    isFavorited: false,
     title: "Eco-Friendly Website",
     summary: "A sustainable website built with green technologies.",
     description:
@@ -61,16 +63,14 @@ export const initialData = [
     hackathonStartDate: "2023-11-05",
     hackathonEndDate: "2023-11-07",
     githubRepositoryLink: "https://github.com/user/eco-website",
-    otherLinks: [
-      "https://www.green-tech-challenge.com",
-      "https://twitter.com/eco_website",
-    ],
+    otherLinks: "https://www.green-tech-challenge.com",
+
     createdAt: "2023-08-25T10:15:00Z",
   },
   {
     id: 4,
     userName: "Hemdan",
-    isFavorited: true,
+    isFavorited: false,
     title: "Data Analytics Platform",
     summary: "A comprehensive data analytics tool for businesses.",
     description:
@@ -80,16 +80,14 @@ export const initialData = [
     hackathonStartDate: "2023-11-10",
     hackathonEndDate: "2023-11-12",
     githubRepositoryLink: "https://github.com/user/data-analytics-platform",
-    otherLinks: [
-      "https://www.datainnovationchallenge.com",
-      "https://linkedin.com/company/data-analytics-platform",
-    ],
+    otherLinks: "https://www.datainnovationchallenge.com",
+
     createdAt: "2023-08-28T16:20:00Z",
   },
   {
     id: 5,
     userName: "Hemdan",
-    isFavorited: true,
+    isFavorited: false,
     title: "Virtual Reality Game",
     summary: "Immerse yourself in a virtual world of adventure and excitement.",
     description:
@@ -99,13 +97,13 @@ export const initialData = [
     hackathonStartDate: "2023-12-01",
     hackathonEndDate: "2023-12-03",
     githubRepositoryLink: "https://github.com/user/vr-game",
-    otherLinks: [],
+
     createdAt: "2023-09-01T08:50:00Z",
   },
   {
     id: 6,
     userName: "Hemdan",
-    isFavorited: true,
+    isFavorited: false,
     title: "AI-Powered Chatbot",
     summary: "Enhance customer support with intelligent chatbot solutions.",
     description:
@@ -115,10 +113,8 @@ export const initialData = [
     hackathonStartDate: "2024-01-15",
     hackathonEndDate: "2024-01-17",
     githubRepositoryLink: "https://github.com/user/ai-chatbot",
-    otherLinks: [
-      "https://www.ai-innovation-challenge.com",
-      "https://linkedin.com/company/ai-powered-chatbot",
-    ],
+    otherLinks: "https://www.ai-innovation-challenge.com",
+
     createdAt: "2023-09-05T11:10:00Z",
   },
 ];

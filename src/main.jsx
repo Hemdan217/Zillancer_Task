@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+import SubmissionsContextProvider from "./contextAPI/context";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <SubmissionsContextProvider>
+      {" "}
+      <App />
+    </SubmissionsContextProvider>
   </React.StrictMode>
 );

@@ -7,23 +7,28 @@ export const schemaValidation = Yup.object().shape({
 
   summary: Yup.string()
     .required("Summary is required")
-    .min(4, "Summary must be at least 4 characters"),
+    .min(20, "Summary must be at least 20 characters"),
 
-  description: Yup.string().required("Description is required"),
+  description: Yup.string()
+    .required("Description is required")
+    .min(100, "Description must be at least 100 characters")
+    .max(3000, "Description must not exceed 3000 characters"),
+
   // coverImage: Yup.mixed()
   //   .required("Cover image is required")
   //   .test(
   //     "fileType",
   //     "Unsupported file format. Only JPEG and PNG are allowed.",
   //     (value) => {
-  //       if (!value) return true; // Allow empty file
-  //       return ["jpeg", "png"].includes(value.split(".").pop().toLowerCase());
+  //       if (!value) return true;
+  //       const acceptedFormats = ["image/jpeg", "image/png"];
+  //       return acceptedFormats.includes(value.type);
   //     }
   //   ),
 
   hackathonName: Yup.string()
     .required("Hackathon name is required")
-    .min(4, "GitHub repository link must be at least 4 characters"),
+    .min(10, "Hackathon name must be at least 10 characters"),
 
   hackathonStartDate: Yup.date()
     .required("Start date is required")
@@ -35,7 +40,16 @@ export const schemaValidation = Yup.object().shape({
 
   githubRepositoryLink: Yup.string()
     .required("GitHub repository link is required")
-    .min(4, "GitHub repository link must be at least 4 characters"),
+    .min(4, "GitHub repository link must be at least 4 characters")
+    .matches(
+      /^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}[^\s]*$/,
+      "Enter a correct URL format for GitHub repository link!"
+    ),
 
-  otherLinks: Yup.string().min(4, "Other links must be at least 4 characters"),
+  otherLinks: Yup.string()
+    .min(4, "Other links must be at least 4 characters")
+    .matches(
+      /^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}[^\s]*$/,
+      "Enter a correct URL format for other links!"
+    ),
 });

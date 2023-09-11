@@ -1,19 +1,15 @@
 import "./App.css";
-import images from "./assets/constants.js";
-import {
-  RouterProvider,
-  Link,
-  createBrowserRouter,
-  useLocation,
-} from "react-router-dom";
-import { Submissions } from "./pages/Submissions";
+import images from "./config/constants.js";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { MainPage } from "./pages/MainPage";
+import Welcome from "./pages/Welcome";
 import { SubmissionDetails } from "./pages/SubmissionDetails";
 import { AddSubmission } from "./pages/AddSubmission";
 import { EditSubmissionDetails } from "./pages/EditSubmissionDetails";
-import SubmissionsContextProvider from "./contextAPI/context";
 import { Header } from "./components/Header";
-import { submissionLoader } from "./loader/submissionLoader";
-import { useEffect } from "react";
+import { submissionLoader } from "./loader/submissionDetailsLoader";
+import { useContext } from "react";
+import { SubmissionsContext } from "./contextAPI/context";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +17,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <Header />
-        <Submissions />
+        <MainPage />
       </>
     ),
   },
@@ -57,13 +53,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <>
-      <SubmissionsContextProvider>
-        <RouterProvider router={router} />
-      </SubmissionsContextProvider>
-    </>
-  );
+  const { userName } = useContext(SubmissionsContext);
+  return <>{userName ? <RouterProvider router={router} /> : <Welcome />}</>;
 }
 
 export default App;

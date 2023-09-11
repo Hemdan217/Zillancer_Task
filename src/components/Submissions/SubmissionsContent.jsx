@@ -1,12 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AllSubmissions } from "./AllSubmissions.jsx";
 import { FavouriteSubmissions } from "./FavouriteSubmissions.jsx";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { SubmissionsContext } from "../../contextAPI/context.jsx";
 export const SubmissionsContent = () => {
   const [tab, setTab] = useState("All");
   const { submissions } = useContext(SubmissionsContext);
   const [filteredSubmissions, setFilteredSubmissions] = useState(submissions);
+  useEffect(() => {
+    setFilteredSubmissions(submissions);
+  }, [submissions]);
   const filterByTitle = (query) => {
     setFilteredSubmissions(
       submissions.filter((submission) =>
@@ -31,7 +34,7 @@ export const SubmissionsContent = () => {
     }
   };
   return (
-    <div className="container-fluid wrapper" id="tabs">
+    <div className=" wrapper" id="tabs">
       <div className="tabs__navbar">
         <div className="tabs__item">
           {["All", "Favourite"].map((item) => {
@@ -75,17 +78,20 @@ export const SubmissionsContent = () => {
           </select>
         </div>
       </div>
-      <div className="submissions__container">
-        {tab == "All" ? (
-          <AllSubmissions submissions={filteredSubmissions} />
-        ) : (
-          <FavouriteSubmissions
-            favoriteSubmissions={filteredSubmissions.filter(
-              (item) => item?.isFavorited == true
-            )}
-          />
-        )}
-      </div>
+      <AnimatePresence>
+        {" "}
+        <div className="submissions__container">
+          {tab == "All" ? (
+            <AllSubmissions submissions={filteredSubmissions} />
+          ) : (
+            <FavouriteSubmissions
+              favoriteSubmissions={filteredSubmissions.filter(
+                (item) => item?.isFavorited == true
+              )}
+            />
+          )}
+        </div>
+      </AnimatePresence>
     </div>
   );
 };
