@@ -3,7 +3,6 @@ import { Field, ErrorMessage } from "formik";
 import images from "../../config/constants.js";
 
 const SubmissionForm = ({ image, updateImage }) => {
-  //console.log(image);
   const handleImageChange = (e) => {
     const file = e.target.files[0]; // Get the selected file
 
@@ -11,11 +10,11 @@ const SubmissionForm = ({ image, updateImage }) => {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        const base64String = e.target.result; // The base64-encoded string
+        const base64String = e.target.result;
         updateImage(base64String);
       };
 
-      reader.readAsDataURL(file); // Read the file as a data URL (base64)
+      reader.readAsDataURL(file);
     }
   };
 
@@ -113,7 +112,7 @@ const SubmissionForm = ({ image, updateImage }) => {
                 <label htmlFor={fieldName.name}>
                   <input
                     hidden
-                    accept="image/*" // Specify accepted file types if needed
+                    accept="image/*"
                     style={{
                       display: "none",
                     }}

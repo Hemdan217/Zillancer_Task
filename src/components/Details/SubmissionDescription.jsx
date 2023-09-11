@@ -3,7 +3,6 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
 export const SubmissionDescription = ({ submission }) => {
-  // Split the description into paragraphs based on line breaks ("\n")
   const paragraphs = submission.description.split("\n");
 
   return (

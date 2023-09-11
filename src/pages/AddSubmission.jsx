@@ -25,7 +25,6 @@ export const AddSubmission = () => {
 
   const handleSubmit = (values, { setSubmitting }) => {
     values["coverImage"] = image;
-    //console.log(values);
     addSubmission(values);
     setSubmitting(false);
     navigate("/");
