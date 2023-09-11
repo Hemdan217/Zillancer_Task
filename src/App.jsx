@@ -1,5 +1,3 @@
-import "./App.css";
-import images from "./config/constants.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { MainPage } from "./pages/MainPage";
 import Welcome from "./pages/Welcome";

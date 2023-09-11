@@ -41,6 +41,7 @@ const SubmissionsContextProvider = ({ children }) => {
   const register = (value) => {
     setUserName(value);
     localStorage.setItem("userName", value);
+    alertFire("Welcome 👋 " + value, "success");
   };
   const addSubmission = (submission) => {
     console.log(submission);
@@ -56,7 +57,7 @@ const SubmissionsContextProvider = ({ children }) => {
   const updateSubmission = (submissionId, newSubmission) => {
     setSubmissions((prevSubmissions) =>
       prevSubmissions.map((submission) => {
-        if (submission.id === submissionId) {
+        if (submission.id == submissionId) {
           return { ...submission, ...newSubmission };
         }
         return submission;
@@ -67,7 +68,7 @@ const SubmissionsContextProvider = ({ children }) => {
 
   const removeSubmission = (submissionId) => {
     setSubmissions((prevSubmissions) =>
-      prevSubmissions.filter((submission) => submission.id !== submissionId)
+      prevSubmissions.filter((submission) => submission.id != submissionId)
     );
     alertFire("Submission Was Deleted Successfully", "info");
   };

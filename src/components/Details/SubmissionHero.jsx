@@ -6,10 +6,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import { SubmissionsContext } from "../../contextAPI/context";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Dialog } from "@mui/material";
 
 function DeleteSubmission({ open, setOpen, removeSubmission, submissionId }) {
+  const navigate = useNavigate();
   return (
     <Dialog
       open={open}
@@ -35,8 +36,8 @@ function DeleteSubmission({ open, setOpen, removeSubmission, submissionId }) {
         <button
           className="delete"
           onClick={() => {
-            //console.log("dojdoj");
             removeSubmission(submissionId);
+            navigate("/");
           }}
         >
           <Link to="/">Delete</Link>
@@ -50,17 +51,38 @@ export const SubmissionHero = ({ submission }) => {
   const { manageFavorite, removeSubmission } = useContext(SubmissionsContext);
 
   const [open, setOpen] = useState(false);
+  const isOwner = localStorage.getItem("userName") == submission.userName;
   const [isFavorited, setIsFavorited] = useState(submission.isFavorited);
   return (
     <div className="wrapper" id="submission__hero">
       <div>
-        <img src={submission.coverImage} />
-        <h1>{submission.title}</h1>
-        <div className="submission__action">
-          <Link to={`edit`}>
-            <button>
-              {" "}
-              <ModeEditOutlineIcon
+        <div>
+          <img src={submission.coverImage} />
+          <h1>{submission.title}</h1>
+        </div>
+        {isOwner && (
+          <div className="submission__action">
+            <Link to={`edit`}>
+              <button>
+                {" "}
+                <ModeEditOutlineIcon
+                  style={{
+                    margin: "-18px 10px -5px -11px",
+                    /* font-size: 13px; */
+                    width: "24px",
+                    height: "24px",
+                    padding: "5px 4px 2px 4px",
+                  }}
+                />
+                Edit
+              </button>
+            </Link>
+            <button
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <DeleteIcon
                 style={{
                   margin: "-18px 10px -5px -11px",
                   /* font-size: 13px; */
@@ -69,26 +91,10 @@ export const SubmissionHero = ({ submission }) => {
                   padding: "5px 4px 2px 4px",
                 }}
               />
-              Edit
+              Delete
             </button>
-          </Link>
-          <button
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            <DeleteIcon
-              style={{
-                margin: "-18px 10px -5px -11px",
-                /* font-size: 13px; */
-                width: "24px",
-                height: "24px",
-                padding: "5px 4px 2px 4px",
-              }}
-            />
-            Delete
-          </button>
-        </div>
+          </div>
+        )}
       </div>
       <p>{submission.summary}</p>
 
