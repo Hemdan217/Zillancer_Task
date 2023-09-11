@@ -1,8 +1,9 @@
 import React from "react";
 import images from "../../config/constants.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 export const SubmissionsHeader = () => {
+  const navigate = useNavigate();
   return (
     <div className=" wrapper" id="hero">
       <div className="hero__text">
@@ -14,8 +15,13 @@ export const SubmissionsHeader = () => {
           in parturient purus feugiat faucibus. Congue laoreet duis porta turpis
           eget suspendisse ac pharetra amet. Vel nisl tempus nec vitae.
         </p>
-        <button>
-          <Link to="new">Upload Submission</Link>
+        <button
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            navigate("/new");
+          }}
+        >
+          <Link>Upload Submission</Link>
         </button>
       </div>
 

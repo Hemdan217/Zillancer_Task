@@ -68,7 +68,6 @@ export const SubmissionHero = ({ submission }) => {
                 <ModeEditOutlineIcon
                   style={{
                     margin: "-18px 10px -5px -11px",
-                    /* font-size: 13px; */
                     width: "24px",
                     height: "24px",
                     padding: "5px 4px 2px 4px",
